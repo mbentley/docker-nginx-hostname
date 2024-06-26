@@ -7,5 +7,5 @@ COPY 40-set-output-to-hostname.sh /docker-entrypoint.d/40-set-output-to-hostname
 USER root
 RUN chmod 777 /usr/share/nginx/html/index.html
 
-# return back to non-root user
-USER nginx
+# return back to non-root user (nginx); set it to the UID:GID because k8s is dumb
+USER 101:101
